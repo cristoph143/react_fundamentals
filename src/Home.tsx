@@ -3,9 +3,16 @@ import viteLogo from '/vite.svg'
 import { useState } from 'react'
 import './App.css'
 const Home = () => {
+    // let name = 'Home';
+    const [name, setName] = useState('mario')
+    const [age, setAge] = useState(25)
     const [count, setCount] = useState(0)
     const handleClick = () => {
-        console.log('hello ninjas', count);
+        console.log('hello ninjas', count, name);
+        // name = 'luigi'
+        setName('luigi')
+        setAge(30)
+        console.log('hello ninjas', count, name);
     }
     const handleClickAgain = (name: string) => {
         console.log('hello ' + name, count);
@@ -19,6 +26,7 @@ const Home = () => {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <p>{name} is {age} years old</p>
         <button onClick={handleClick}>Click Me!</button>
         <button onClick={handleClickAgain('Mario')}>Click Me Again!</button>
         <button onClick={() => {
