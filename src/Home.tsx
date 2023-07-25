@@ -4,6 +4,12 @@ import { useState } from 'react'
 import './App.css'
 const Home = () => {
     const [count, setCount] = useState(0)
+    const handleClick = () => {
+        console.log('hello ninjas', count);
+    }
+    const handleClickAgain = (name: string) => {
+        console.log('hello ' + name, count);
+    }
     return (
         <>
         <div>
@@ -13,6 +19,12 @@ const Home = () => {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <button onClick={handleClick}>Click Me!</button>
+        <button onClick={handleClickAgain('Mario')}>Click Me Again!</button>
+        <button onClick={() => {
+            console.log('hello ninjas', count);
+            handleClickAgain('Mario');
+        }}>Click Me Again Direct!</button>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
