@@ -29,7 +29,7 @@ const Home = () => {
         </a>
         <p>{name} is {age} years old</p>
         <button onClick={handleClick}>Click Me!</button>
-        <button onClick={handleClickAgain('Mario')}>Click Me Again!</button>
+        {/* <button onClick={handleClickAgain('Mario')}>Click Me Again!</button> */}
         <button onClick={() => {
             console.log('hello ninjas', count);
             handleClickAgain('Mario');
