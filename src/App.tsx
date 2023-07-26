@@ -5,6 +5,7 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import List from "./List";
 import Create from "./Create";
+import BlogDetails from "./BlogDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/list" element={<List />} />
       <Route path="/create" element={<Create />} />
+      <Route path="/blogs/:id" element={<BlogDetails />} />
       </Routes>
     </Router>
   );

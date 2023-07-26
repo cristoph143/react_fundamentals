@@ -29,10 +29,9 @@ const useFetch = (url) => {
           console.log(err.message);
           setError(err.message);
         });
-    }, 3000);
+    }, 1000);
     return () => abortCont.abort(); //cleanup
-  }, [url]);
-
+  }, [abortCont, url]);
   return { isPending, error, data };
 };
 
