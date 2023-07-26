@@ -12,6 +12,10 @@ const List = () => {
       id: 3,
     },
   ]);
+  const handleDeleteBlog = (id) => {
+    // delete id from blogs list
+    return setBlogs(blogs.filter((blog) => blog.id !== id));
+};
 
   const title = 'Welcome! All Blogs Ahead!'
   const title1 = 'Mario\'s Blog!'
@@ -20,8 +24,8 @@ const List = () => {
   console.log(mario)
   return (
     <>
-      <BlogList blogs={blogs} title={title} />
-      <BlogList blogs={mario} title="Mario's Blogs" />
+      <BlogList blogs={blogs} title={title} handleDelete={handleDeleteBlog}/>
+      <BlogList blogs={mario} title={title1} handleDelete={handleDeleteBlog} />
     </>
   );
 };
