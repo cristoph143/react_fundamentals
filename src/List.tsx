@@ -6,7 +6,7 @@ const List = () => {
   return (
     <>
       {error && <div className="error">{error}</div>}
-      {isPending && <div className="isLoadinfg">Loading</div>}
+      {isPending && <div className="isLoading">Loading</div>}
       {blogs && (
         <BlogList blogs={blogs} title={title} />
       )}
@@ -63,7 +63,7 @@ export default List;
 //   return (
 //     <>
 //       {error && <div className="error">{error}</div>}
-//       {isPending && <div className="isLoadinfg">Loading</div>}
+//       {isPending && <div className="isLoading">Loading</div>}
 //       {blogs && (
 //         <BlogList blogs={blogs} title={title} handleDelete={handleDeleteBlog} />
 //       )}
