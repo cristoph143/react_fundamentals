@@ -9,6 +9,7 @@ const List = () => {
   };
   const title = "Welcome! All Blogs Ahead!";
   const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
   const [names, setName] = useState("mario");
   //   useEffect(() => {
   //     console.log("use effect ran");
@@ -18,12 +19,22 @@ const List = () => {
     setTimeout(() => {
       fetch("http://localhost:8000/blogs")
         .then((res) => {
+          console.log(res);
+          if (!res.ok) {
+            throw Error("could not fetch the data for that resource");
+          }
           return res.json();
         })
         .then((data) => {
           console.log(data);
           setBlogs(data);
           setIsPending(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setIsPending(false);
+          console.log(err.message);
+          setError(err.message);
         });
     }, 3000);
   }, []);
@@ -33,6 +44,7 @@ const List = () => {
   //   console.log(mario);
   return (
     <>
+      {error && <div className="error">{error}</div>}
       {isPending && <div className="isLoadinfg">Loading</div>}
       {blogs && (
         <BlogList blogs={blogs} title={title} handleDelete={handleDeleteBlog} />
