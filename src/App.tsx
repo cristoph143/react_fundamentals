@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import List from "./List";
 import Create from "./Create";
 import BlogDetails from "./BlogDetails";
+import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/list" element={<List />} />
       <Route path="/create" element={<Create />} />
       <Route path="/blogs/:id" element={<BlogDetails />} />
+      <Route path="/*" element={<NotFound />} />
       </Routes>
     </Router>
   );
