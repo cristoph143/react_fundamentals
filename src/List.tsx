@@ -7,30 +7,33 @@ const List = () => {
     // delete id from blogs list
     setBlogs(blogs.filter((blog) => blog.id !== id));
   };
-
   const title = "Welcome! All Blogs Ahead!";
-
+  const [isPending, setIsPending] = useState(true);
   const [names, setName] = useState("mario");
   //   useEffect(() => {
   //     console.log("use effect ran");
   //     console.log(names);
   //   }, [names]);
   useEffect(() => {
-    fetch("http://localhost:8000/blogs")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setBlogs(data);
-      });
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setBlogs(data);
+          setIsPending(false);
+        });
+    }, 3000);
   }, []);
-//   const title1 = "Mario's Blog!";
-//   console.log(blogs);
-//   const mario = blogs.filter((blog) => blog.author === "mario");
-//   console.log(mario);
+  //   const title1 = "Mario's Blog!";
+  //   console.log(blogs);
+  //   const mario = blogs.filter((blog) => blog.author === "mario");
+  //   console.log(mario);
   return (
     <>
+      {isPending && <div className="isLoadinfg">Loading</div>}
       {blogs && (
         <BlogList blogs={blogs} title={title} handleDelete={handleDeleteBlog} />
       )}
