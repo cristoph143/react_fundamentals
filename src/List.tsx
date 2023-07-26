@@ -14,7 +14,7 @@ const List = () => {
   ]);
   const handleDeleteBlog = (id) => {
     // delete id from blogs list
-    return setBlogs(blogs.filter((blog) => blog.id !== id));
+    setBlogs(blogs.filter((blog) => blog.id !== id));
 };
 
   const title = 'Welcome! All Blogs Ahead!'
