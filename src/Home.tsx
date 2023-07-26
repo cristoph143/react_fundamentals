@@ -2,6 +2,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { useState } from 'react'
 import './App.css'
+import List from './List'
 const Home = () => {
     // let name = 'Home';
     const [name, setName] = useState('mario')
@@ -46,6 +47,7 @@ const Home = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <List />
         </>
     );
 }
